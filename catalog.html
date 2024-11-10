@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Каталог - ElectroTech</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: Arial, sans-serif;
+			}
+
+			a {
+				color: #000;
+				text-decoration: none;
+			}
+
+			body {
+				background-color: #f5f5f5;
+			}
+
+			nav {
+				background-color: #333;
+				padding: 1rem;
+				position: fixed;
+				width: 100%;
+				top: 0;
+				z-index: 1000;
+			}
+
+			nav ul {
+				list-style: none;
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+			}
+
+			nav a {
+				color: white;
+				text-decoration: none;
+				font-size: 1.1rem;
+				padding: 0.5rem 1rem;
+				border-radius: 5px;
+				transition: 0.3s ease-in-out background-color;
+			}
+
+			nav a:hover {
+				background-color: #555;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 100px auto 20px;
+				padding: 0 20px;
+			}
+
+			.filters {
+				margin-bottom: 30px;
+				display: flex;
+				gap: 20px;
+				flex-wrap: wrap;
+			}
+
+			.filter-btn {
+				padding: 10px 20px;
+				border: none;
+				background-color: #fff;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: 0.3s ease-in-out background-color;
+			}
+
+			.filter-btn:hover {
+				background-color: #eee;
+			}
+
+			.filter-btn.active {
+				background-color: #333;
+				color: white;
+			}
+
+			.products {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+				gap: 30px;
+			}
+
+			.product-card {
+				background: white;
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+				transition: 0.3s ease-in-out;
+				cursor: pointer;
+			}
+
+			.product-card:hover {
+				transform: translateY(-10px);
+				transition: 0.3s ease-in-out transform;
+			}
+
+			.product-image {
+				width: 100%;
+				height: 250px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.product-image img {
+				object-fit: cover;
+			}
+
+			.product-info {
+				padding: 20px;
+			}
+
+			.product-title {
+				font-size: 1.2rem;
+				margin-bottom: 10px;
+			}
+
+			.product-price {
+				color: #ff6b6b;
+				font-weight: bold;
+				font-size: 1.1rem;
+			}
+
+			.product-description {
+				margin-top: 10px;
+				color: #666;
+				font-size: 0.9rem;
+			}
+
+			.product-card.hidden {
+				display: none;
+			}
+
+			.filter-btn.active {
+				background-color: #333;
+				color: white;
+			}
+
+			.no-results {
+				text-align: center;
+				grid-column: 1 / -1;
+				padding: 20px;
+				font-size: 1.2rem;
+				color: #666;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Главная</a></li>
+				<li><a href="about.html">О нас</a></li>
+				<li><a href="catalog.html">Каталог</a></li>
+				<li><a href="contacts.html">Контакты</a></li>
+			</ul>
+		</nav>
+
+		<div class="container">
+			<div class="filters">
+				<button class="filter-btn active" data-category="all">
+					Все товары
+				</button>
+				<button class="filter-btn" data-category="smartphones">
+					Смартфоны
+				</button>
+				<button class="filter-btn" data-category="appliances">
+					Бытовая техника
+				</button>
+				<button class="filter-btn" data-category="kitchen">
+					Кухонная техника
+				</button>
+			</div>
+
+			<div class="products">
+				<a href="1.html" class="product-card" data-category="smartphones">
+					<div class="product-image">
+						<img src="./asset/img/samsungS24_ULTRA.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">Смартфон Galaxy S24</h3>
+						<p class="product-price">89 999 ₽</p>
+						<p class="product-description">
+							6.1" AMOLED экран, 8GB RAM, 128GB память
+						</p>
+					</div>
+				</a>
+
+				<a href="3.html" class="product-card" data-category="kitchen">
+					<div class="product-image">
+						<img src="./asset/img/bosh_MFQ_3555.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">Миксер Bosch MFQ3555</h3>
+						<p class="product-price">4 999 ₽</p>
+						<p class="product-description">
+							5 скоростей, 350W, венчики и крюки в комплекте
+						</p>
+					</div>
+				</a>
+
+				<a href="4.html" class="product-card" data-category="kitchen">
+					<div class="product-image">
+						<img src="./asset/img/чайник_филипс.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">Чайник Philips HD9350</h3>
+						<p class="product-price">3 499 ₽</p>
+						<p class="product-description">1.7л, 2200W, защита от накипи</p>
+					</div>
+				</a>
+
+				<a href="5.html" class="product-card" data-category="appliances">
+					<div class="product-image">
+						<img src="./asset/img/утюг_тефаль.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">Утюг Tefal FV1844</h3>
+						<p class="product-price">2 999 ₽</p>
+						<p class="product-description">2200W, антипригарная подошва</p>
+					</div>
+				</a>
+
+				<a href="6.html" class="product-card" data-category="kitchen">
+					<div class="product-image">
+						<img src="./asset/img/блендер_браун.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">Блендер Braun MQ5235</h3>
+						<p class="product-price">5 499 ₽</p>
+						<p class="product-description">1000W, измельчитель 500мл</p>
+					</div>
+				</a>
+
+				<a href="2.html" class="product-card" data-category="smartphones">
+					<div class="product-image">
+						<img src="./asset/img/iphone15.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">iPhone 15</h3>
+						<p class="product-price">99 999 ₽</p>
+						<p class="product-description">6.1" Super Retina XDR, A16 Bionic</p>
+					</div>
+				</a>
+
+				<a href="7.html" class="product-card" data-category="kitchen">
+					<div class="product-image">
+						<img src="./asset/img/кофеварка.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">Кофеварка DeLonghi EC235</h3>
+						<p class="product-price">12 999 ₽</p>
+						<p class="product-description">15 бар, капучинатор</p>
+					</div>
+				</a>
+
+				<a href="8.html" class="product-card" data-category="kitchen">
+					<div class="product-image">
+						<img src="./asset/img/тостер.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">Тостер Smeg TSF01</h3>
+						<p class="product-price">6 999 ₽</p>
+						<p class="product-description">6 режимов прожарки, ретро дизайн</p>
+					</div>
+				</a>
+
+				<a href="9.html" class="product-card" data-category="kitchen">
+					<div class="product-image">
+						<img src="./asset/img/мультиварка.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">Мультиварка Redmond RMC-M90</h3>
+						<p class="product-price">8 999 ₽</p>
+						<p class="product-description">5л, 40 программ приготовления</p>
+					</div>
+				</a>
+
+				<a href="10.html" class="product-card" data-category="appliances">
+					<div class="product-image">
+						<img src="./asset/img/пылесос.webp" alt="" />
+					</div>
+					<div class="product-info">
+						<h3 class="product-title">Пылесос Samsung VC18M21A0S2</h3>
+						<p class="product-price">7 999 ₽</p>
+						<p class="product-description">1800W, циклонный фильтр</p>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const filterButtons = document.querySelectorAll(".filter-btn");
+				const products = document.querySelectorAll(".product-card");
+				const productsContainer = document.querySelector(".products");
+
+				filterButtons.forEach((button) => {
+					button.addEventListener("click", () => {
+						filterButtons.forEach((btn) => btn.classList.remove("active"));
+						button.classList.add("active");
+
+						const category = button.getAttribute("data-category");
+						let visibleProducts = 0;
+
+						products.forEach((product) => {
+							if (
+								category === "all" ||
+								product.getAttribute("data-category") === category
+							) {
+								product.classList.remove("hidden");
+								visibleProducts++;
+							} else {
+								product.classList.add("hidden");
+							}
+						});
+
+						const noResultsMessage = document.querySelector(".no-results");
+						if (visibleProducts === 0) {
+							if (!noResultsMessage) {
+								const message = document.createElement("div");
+								message.className = "no-results";
+								message.textContent = "Товары не найдены";
+								productsContainer.appendChild(message);
+							}
+						} else {
+							if (noResultsMessage) {
+								noResultsMessage.remove();
+							}
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
